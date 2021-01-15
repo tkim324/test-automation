@@ -1,32 +1,36 @@
 package pageObjectModelTest.main;
 
 import org.junit.Test;
+import pageObjectModel.WebElements;
+import pageObjectModel.login.LoginPageCase;
 import pageObjectModel.main.MainPage;
-import pageObjectModelTest.login.LoginPageTest;
 
-public class MainPageTest{
 
-    LoginPageTest loginPageTest = new LoginPageTest();
+public class MainPageTest extends WebElements {
+
+    LoginPageCase loginPageCase = new LoginPageCase();
     MainPage mainPage = new MainPage();
 
     @Test
     public void clickAllButtons() {
-        loginPageTest.loginWebsite();
-        mainPage.clickEintragAnzeigen();
-        mainPage.clickEintragAnzeigen();
+        loginPageCase.loginWebsite();
         mainPage.clickAenderungsprotokoll();
+        mainPage.clickEintragAnzeigen();
+        mainPage.clickEintragAnzeigen();
         mainPage.clickRoadmap();
         mainPage.clickZusammenfassung();
-        mainPage.clickVerwaltung();
         mainPage.clickUebersicht();
-        //System.out.println(driver.getTitle());
+        mainPage.clickVerwaltung();
+        System.out.println(driver.getTitle());
+        quitDriver();
     }
 
     @Test
     public void clickBtnEintragErfassen() {
-        loginPageTest.loginWebsite();
+        loginPageCase.loginWebsite();
         mainPage.clickEintragErfassen();
-        //System.out.println(driver.getTitle());
+        System.out.println(driver.getTitle());
+        quitDriver();
     }
 
 

@@ -7,14 +7,15 @@ package webdriver;
         import org.openqa.selenium.firefox.FirefoxDriver;
 
 
-public class Driver {
+public abstract class Driver {
 
-    protected WebDriver driver = Driver.getDriver();
+    protected WebDriver driver = getDriver();
     private String domain = "mantis.haeger-consulting.de/";
     protected String URL = String.format("https://%s:%s@%s", "mantis", "likemypet", domain);
     private static ThreadLocal<WebDriver> threadDriver = new ThreadLocal<>();
     private static ThreadLocal<String> browserName = new ThreadLocal<>();
 
+    public Driver (){driver = webdriver.Driver.getDriver();}
 
     public static WebDriver getDriver(){
 
@@ -49,7 +50,6 @@ public class Driver {
 
 
     public static void quitDriver(){
-
 
         if (threadDriver.get()!=null){
 

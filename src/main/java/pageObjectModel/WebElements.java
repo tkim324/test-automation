@@ -9,7 +9,7 @@ import webdriver.Driver;
 
 public abstract class WebElements extends Driver {
 
-    public WebElements(){driver = Driver.getDriver();}
+    public WebElements(){}
 
     WebDriverWait wait = new WebDriverWait(getDriver(),10);
 
