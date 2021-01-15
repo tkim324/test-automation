@@ -9,7 +9,6 @@ import webdriver.Driver;
 public class MainPage extends WebElements {
 
     public MainPage(){
-        driver= Driver.getDriver();
         PageFactory.initElements(driver,this);
     }
 

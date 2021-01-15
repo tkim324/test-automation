@@ -16,7 +16,6 @@ public class LoginPage extends WebElements {
 
 
     public LoginPage(){
-        driver = Driver.getDriver();
         PageFactory.initElements(driver,this);
     }
 

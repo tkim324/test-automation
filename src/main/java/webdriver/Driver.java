@@ -5,7 +5,6 @@ package webdriver;
         import org.openqa.selenium.chrome.ChromeDriver;
         import org.openqa.selenium.edge.EdgeDriver;
         import org.openqa.selenium.firefox.FirefoxDriver;
-        import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class Driver {
