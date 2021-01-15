@@ -1,19 +1,17 @@
 package pageObjectModel;
 
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import webdriver.Driver;
 
-public abstract class WebElements {
+public abstract class WebElements extends Driver {
 
+    public WebElements(){driver = Driver.getDriver();}
 
-    private WebDriver driver = Driver.getDriver();
-    WebDriverWait wait = new WebDriverWait(driver,10);
-
+    WebDriverWait wait = new WebDriverWait(getDriver(),10);
 
     public void clickFunction(WebElement clickElement){
 

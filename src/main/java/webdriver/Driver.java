@@ -1,19 +1,20 @@
 package webdriver;
 
+        import io.github.bonigarcia.wdm.WebDriverManager;
         import org.openqa.selenium.WebDriver;
         import org.openqa.selenium.chrome.ChromeDriver;
         import org.openqa.selenium.edge.EdgeDriver;
         import org.openqa.selenium.firefox.FirefoxDriver;
+        import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class Driver {
 
-    private static WebDriver driver;
-    private static String domain = "mantis.haeger-consulting.de/";
-    public static String URL = String.format("https://%s:%s@%s", "mantis", "likemypet", domain);
-    public static ThreadLocal<WebDriver> threadDriver = new ThreadLocal<>();
-    public static ThreadLocal<String> browserName = new ThreadLocal<>();
-
+    protected WebDriver driver = Driver.getDriver();
+    private String domain = "mantis.haeger-consulting.de/";
+    protected String URL = String.format("https://%s:%s@%s", "mantis", "likemypet", domain);
+    private static ThreadLocal<WebDriver> threadDriver = new ThreadLocal<>();
+    private static ThreadLocal<String> browserName = new ThreadLocal<>();
 
 
     public static WebDriver getDriver(){
@@ -27,16 +28,17 @@ public class Driver {
             switch (browserName.get()){
 
                 case "firefox":
-                    System.setProperty("webdriver.gecko.driver", "C:/Drivers/geckodriver.exe");
+                    WebDriverManager.firefoxdriver().setup();
                     threadDriver.set(new FirefoxDriver());
-
                     break;
-              /*  case "edge":
-                    System.setProperty("webdriver.edge.driver", "C:/Drivers/msedgedriver.exe");
+
+                case "edge":
+                    WebDriverManager.edgedriver().setup();
                     threadDriver.set(new EdgeDriver());
-                    break;*/
+                    break;
+
                 default:
-                    System.setProperty("webdriver.chrome.driver","C:/Drivers/chromedriver.exe");
+                    WebDriverManager.chromedriver().setup();
                     threadDriver.set(new ChromeDriver());
                     break;
 

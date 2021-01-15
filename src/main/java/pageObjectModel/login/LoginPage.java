@@ -1,6 +1,5 @@
 package pageObjectModel.login;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -10,8 +9,6 @@ import webdriver.Driver;
 
 public class LoginPage extends WebElements {
 
-    WebDriver driver;
-
     public String correctUsername = "ffischer";
     public String correctPassword = "5elenium";
     public String incorrectUsername = "test";
@@ -19,7 +16,7 @@ public class LoginPage extends WebElements {
 
 
     public LoginPage(){
-        driver= Driver.getDriver();
+        driver = Driver.getDriver();
         PageFactory.initElements(driver,this);
     }
 
@@ -32,8 +29,8 @@ public class LoginPage extends WebElements {
         }
 
         public void insertIncorrectUsername() {
-        sendKeysFunction(subjectUsername, incorrectUsername);
-    }
+            sendKeysFunction(subjectUsername, incorrectUsername);
+        }
 
 
         @FindBy(name = "password")
