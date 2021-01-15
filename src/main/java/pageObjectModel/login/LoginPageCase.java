@@ -14,8 +14,7 @@ public class LoginPageCase extends WebElements {
         driver.manage().window().maximize();
         driver.get(URL);
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        //Assert.assertEquals(driver.getTitle(), "MantisBT");
-        System.out.println(driver.getTitle());
+        //System.out.println(driver.getTitle());
     }
 
     public void loginWebsite() {
@@ -24,7 +23,6 @@ public class LoginPageCase extends WebElements {
         loginPage.clickLoginButton();
         loginPage.insertPassword();
         loginPage.clickLoginButton();
-        //Assert.assertEquals(driver.getTitle(),"Übersicht - MantisBT"); //fuehrt zu Fehler!
-        System.out.println(driver.getTitle());
+        //System.out.println(driver.getTitle());
     }
 }

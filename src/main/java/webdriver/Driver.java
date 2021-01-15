@@ -9,18 +9,21 @@ package webdriver;
 
 public abstract class Driver {
 
-    protected WebDriver driver = getDriver();
+
+    private static String browser = "chrome";           //"firefox" and "edge" also supported
+
     private String domain = "mantis.haeger-consulting.de/";
     protected String URL = String.format("https://%s:%s@%s", "mantis", "likemypet", domain);
+    protected WebDriver driver = getDriver();
     private static ThreadLocal<WebDriver> threadDriver = new ThreadLocal<>();
     private static ThreadLocal<String> browserName = new ThreadLocal<>();
 
-    public Driver (){driver = webdriver.Driver.getDriver();}
+    public Driver (){driver = getDriver();}
 
     public static WebDriver getDriver(){
 
         if (browserName.get()==null){
-            browserName.set("chrome");
+            browserName.set(browser);
         }
 
         if (threadDriver.get()==null){
