@@ -4,7 +4,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.WebElement;
 import pageObjectModel.WebElements;
-import webdriver.Driver;
+
 
 public class MainPage extends WebElements {
 

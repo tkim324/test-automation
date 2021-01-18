@@ -14,7 +14,7 @@ public abstract class Driver {
 
     private String domain = "mantis.haeger-consulting.de/";
     protected String URL = String.format("https://%s:%s@%s", "mantis", "likemypet", domain);
-    protected WebDriver driver = getDriver();
+    protected WebDriver driver;
     private static ThreadLocal<WebDriver> threadDriver = new ThreadLocal<>();
     private static ThreadLocal<String> browserName = new ThreadLocal<>();
 
@@ -22,11 +22,11 @@ public abstract class Driver {
 
     public static WebDriver getDriver(){
 
-        if (browserName.get()==null){
+        if (browserName.get() == null){
             browserName.set(browser);
         }
 
-        if (threadDriver.get()==null){
+        if (threadDriver.get() == null){
 
             switch (browserName.get()){
 
@@ -54,11 +54,11 @@ public abstract class Driver {
 
     public static void quitDriver(){
 
-        if (threadDriver.get()!=null){
+        if (threadDriver.get() != null){
 
             threadDriver.get().quit();
             WebDriver driver = threadDriver.get();
-            driver=null;
+            driver = null;
 
             threadDriver.set(driver);
         }

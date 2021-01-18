@@ -1,6 +1,7 @@
-package pageObjectModel.login;
+package pageObjectModel.useCase;
 
 import pageObjectModel.WebElements;
+import pageObjectModel.login.LoginPage;
 
 import java.util.concurrent.TimeUnit;
 

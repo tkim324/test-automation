@@ -4,15 +4,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pageObjectModel.WebElements;
-import webdriver.Driver;
 
 
 public class LoginPage extends WebElements {
 
-    public String correctUsername = "ffischer";
-    public String correctPassword = "5elenium";
-    public String incorrectUsername = "test";
-    public String incorrectPassword = "123456";
+    private String correctUsername = "ffischer";
+    private String correctPassword = "5elenium";
+    private String incorrectUsername = "test";
+    private String incorrectPassword = "123456";
 
 
     public LoginPage(){
