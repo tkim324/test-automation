@@ -35,6 +35,7 @@ public abstract class WebElements extends Driver {
 
     }
 
+
     public void Assertion(WebElement actual,String expected){
         wait.until(ExpectedConditions.visibilityOf(actual));
         Assert.assertEquals(actual.getText(),expected);
