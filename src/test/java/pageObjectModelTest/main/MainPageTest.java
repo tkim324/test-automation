@@ -16,7 +16,7 @@ public class MainPageTest extends WebElements {
     public void teardown() {quitDriver();}
 
     @Test
-    public void clickAllButtons() {
+    public void clickNavBarAllButtons() {
         loginPageCase.loginWebsite();
         mainPage.clickAenderungsprotokoll();
         mainPage.clickEintragAnzeigen();
