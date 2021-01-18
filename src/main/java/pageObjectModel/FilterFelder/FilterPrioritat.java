@@ -9,10 +9,10 @@ import org.openqa.selenium.support.ui.Select;
 import pageObjectModel.WebElements;
 import webdriver.Driver;
 
-public class FilterReporter extends WebElements {
+public class FilterPrioritat extends WebElements {
     WebDriver driver;
 
-    public FilterReporter() {
+    public FilterPrioritat() {
         driver = Driver.getDriver();
         PageFactory.initElements(driver, this);
     }
@@ -20,16 +20,18 @@ public class FilterReporter extends WebElements {
     private WebElement btnEintrageAnzeigen;
     public void btnEintrageAnzeigen() {clickFunction(btnEintrageAnzeigen);    }
 
-    @FindBy(id = "reporter_id_filter")
-    private WebElement btnReporter;
-    public void clickbtnReporter() {clickFunction(btnReporter);    }
+    @FindBy(id = "show_priority_filter")
+    private WebElement btnprioritat;
+    public void clickbtnprioritat() {clickFunction(btnprioritat);    }
 
-    @FindBy(name = "reporter_id[]")
-    private WebElement btnReporterId;
+    public void choosePrioritat(){
+    WebElement element = driver.findElement(By.name("priority[]"));
+    Select slc =new Select(element);
+    element=driver.findElement(By.name("priority[]"));
+    slc= new Select(element);
+        slc.selectByIndex(3);}
 
-    public void typebtnReporterId(){selectElementFromDropdown(btnReporterId, "etosun");}
-    //Select slc =new Select(btnReporterId);
-      //  slc.selectByIndex(5);
+
 
     @FindBy(xpath = "//body/div[@id='main-container']/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/form[1]/div[2]/div[1]/div[1]/input[2]")
     private WebElement btnfiltersearch;
