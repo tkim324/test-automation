@@ -2,21 +2,19 @@ package pageObjectModelTest.FilterFelderTest;
 
 import org.junit.After;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
 import pageObjectModel.FilterFelder.FilterReporter;
-import pageObjectModelTest.login.LoginPageTest;
+import pageObjectModel.useCase.LoginPageCase;
 import webdriver.Driver;
-import org.junit.Assert;
+
 
 public class FilterReporterTest extends  Driver {
 
-    WebDriver driver;
-    LoginPageTest loginPageTest = new LoginPageTest();
+      LoginPageCase loginPageCase = new LoginPageCase();
     FilterReporter filter = new FilterReporter();
 
     @Test
     public void clickFilterFelderReporter() throws Throwable {
-        loginPageTest.login_Website();
+        loginPageCase.loginWebsite();
         filter.btnEintrageAnzeigen();
         filter.clickbtnReporter();
         filter.typebtnReporterId();

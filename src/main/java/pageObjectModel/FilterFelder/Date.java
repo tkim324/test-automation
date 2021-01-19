@@ -1,16 +1,14 @@
 package pageObjectModel.FilterFelder;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pageObjectModel.WebElements;
-import webdriver.Driver;
+
 
 public class Date extends WebElements {
-    WebDriver driver;
+
     public Date() {
-        driver = Driver.getDriver();
         PageFactory.initElements(driver, this);
     }
 

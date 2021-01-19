@@ -2,21 +2,20 @@ package pageObjectModelTest.main;
 
 import org.junit.After;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
 import pageObjectModel.main.EintragErfassan;
-import pageObjectModel.main.MainPage;
-import pageObjectModelTest.login.LoginPageTest;
+import pageObjectModel.useCase.LoginPageCase;
+
 import webdriver.Driver;
 
 public class EintragErfassanTest extends Driver {
-    WebDriver driver;
-    LoginPageTest loginPageTest = new LoginPageTest();
+
+    LoginPageCase loginPageCase = new LoginPageCase();
     EintragErfassan eintragErfassan = new EintragErfassan();
 
 
     @Test
     public void clickBtnEintragErfassen() throws Throwable {
-        loginPageTest.login_Website();
+        loginPageCase.loginWebsite();
         eintragErfassan.clickEintragErfassen();
         eintragErfassan.clickprojectWahlen();
         eintragErfassan.clickreproduzierbar();

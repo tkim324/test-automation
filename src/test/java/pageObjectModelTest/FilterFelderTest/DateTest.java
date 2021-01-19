@@ -2,21 +2,19 @@ package pageObjectModelTest.FilterFelderTest;
 
 import org.junit.After;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
 import pageObjectModel.FilterFelder.Date;
-import pageObjectModel.FilterFelder.FilterPrioritat;
-import pageObjectModelTest.login.LoginPageTest;
-import webdriver.Driver;
+import pageObjectModel.WebElements;
+import pageObjectModel.useCase.LoginPageCase;
 
-public class DateTest extends  Driver {
 
-    WebDriver driver;
-    LoginPageTest loginPageTest = new LoginPageTest();
+public class DateTest extends WebElements {
+
+    LoginPageCase loginPageCase = new LoginPageCase();
     Date date = new Date();
 
     @Test
     public void clickFilterFelderReporter() throws Throwable {
-        loginPageTest.login_Website();
+        loginPageCase.loginWebsite();
         date.btnEintrageAnzeigen();
         date.btnNachErfassungDatumn();
         date.clickErfassungCheck();
