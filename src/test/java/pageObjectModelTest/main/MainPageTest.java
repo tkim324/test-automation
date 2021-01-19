@@ -4,7 +4,7 @@ import org.junit.After;
 import org.junit.Test;
 import pageObjectModel.WebElements;
 import pageObjectModel.useCase.LoginPageCase;
-import pageObjectModel.main.MainPage;
+import pageObjectModel.pages.MainPage;
 
 
 public class MainPageTest extends WebElements {
