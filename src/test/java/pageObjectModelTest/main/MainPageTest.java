@@ -1,22 +1,43 @@
 package pageObjectModelTest.main;
 
+import org.junit.After;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
+import pageObjectModel.WebElements;
+import pageObjectModel.useCase.LoginPageCase;
 import pageObjectModel.main.MainPage;
-import pageObjectModelTest.login.LoginPageTest;
 
-public class MainPageTest{
 
-    WebDriver driver;
-    LoginPageTest loginPageTest = new LoginPageTest();
+public class MainPageTest extends WebElements {
+
+    LoginPageCase loginPageCase = new LoginPageCase();
     MainPage mainPage = new MainPage();
 
+    @After
+    public void teardown() {quitDriver();}
+
     @Test
-    public void clickBtnEintragErfassen() throws  Throwable{
-        loginPageTest.login_Website();
-        mainPage.clickEintragErfassen();
-        //System.out.println(driver.getTitle());
+    public void clickNavBarAllButtons() {
+        loginPageCase.loginWebsite();
+        mainPage.clickAenderungsprotokoll();
+        mainPage.clickEintragAnzeigen();
+        mainPage.clickEintragAnzeigen();
+        mainPage.clickRoadmap();
+        mainPage.clickZusammenfassung();
+        mainPage.clickUebersicht();
+        mainPage.clickVerwaltung();
+        System.out.println(driver.getTitle());
+        //Assertion(, "MantisBT");
+        //quitDriver();
     }
+
+    @Test
+    public void clickBtnEintragErfassen() {
+        loginPageCase.loginWebsite();
+        mainPage.clickEintragErfassen();
+        System.out.println(driver.getTitle());
+        //quitDriver();
+    }
+
 
 
 

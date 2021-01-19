@@ -1,42 +1,47 @@
 package webdriver;
 
+        import io.github.bonigarcia.wdm.WebDriverManager;
         import org.openqa.selenium.WebDriver;
         import org.openqa.selenium.chrome.ChromeDriver;
         import org.openqa.selenium.edge.EdgeDriver;
         import org.openqa.selenium.firefox.FirefoxDriver;
 
 
-public class Driver {
-
-    private static WebDriver driver;
-    private static String domain = "mantis.haeger-consulting.de/";
-    public static String URL = String.format("https://%s:%s@%s", "mantis", "likemypet", domain);
-    public static ThreadLocal<WebDriver> threadDriver = new ThreadLocal<>();
-    public static ThreadLocal<String> browserName = new ThreadLocal<>();
+public abstract class Driver {
 
 
+    private static String browser = "chrome";           //"firefox" and "edge" also supported
+
+    private String domain = "mantis.haeger-consulting.de/";
+    protected String URL = String.format("https://%s:%s@%s", "mantis", "likemypet", domain);
+    protected WebDriver driver;
+    private static ThreadLocal<WebDriver> threadDriver = new ThreadLocal<>();
+    private static ThreadLocal<String> browserName = new ThreadLocal<>();
+
+    public Driver (){driver = getDriver();}
 
     public static WebDriver getDriver(){
 
-        if (browserName.get()==null){
-            browserName.set("chrome");
+        if (browserName.get() == null){
+            browserName.set(browser);
         }
 
-        if (threadDriver.get()==null){
+        if (threadDriver.get() == null){
 
             switch (browserName.get()){
 
                 case "firefox":
-                    System.setProperty("webdriver.gecko.driver", "C:/Drivers/geckodriver.exe");
+                    WebDriverManager.firefoxdriver().setup();
                     threadDriver.set(new FirefoxDriver());
-
                     break;
-              /*  case "edge":
-                    System.setProperty("webdriver.edge.driver", "C:/Drivers/msedgedriver.exe");
+
+                case "edge":
+                    WebDriverManager.edgedriver().setup();
                     threadDriver.set(new EdgeDriver());
-                    break;*/
+                    break;
+
                 default:
-                    System.setProperty("webdriver.chrome.driver","C:/Drivers/chromedriver.exe");
+                    WebDriverManager.chromedriver().setup();
                     threadDriver.set(new ChromeDriver());
                     break;
 
@@ -49,12 +54,11 @@ public class Driver {
 
     public static void quitDriver(){
 
-
-        if (threadDriver.get()!=null){
+        if (threadDriver.get() != null){
 
             threadDriver.get().quit();
             WebDriver driver = threadDriver.get();
-            driver=null;
+            driver = null;
 
             threadDriver.set(driver);
         }
