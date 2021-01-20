@@ -1,26 +1,33 @@
 package pageObjectModelTest.main;
 
 import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import pageObjectModel.main.EintragErfassan;
 import pageObjectModel.useCase.LoginPageCase;
+import pageObjectModel.WebElements;
 
-import webdriver.Driver;
 
-public class EintragErfassanTest extends Driver {
+
+public class EintragErfassanTest extends WebElements {
 
     LoginPageCase loginPageCase = new LoginPageCase();
     EintragErfassan eintragErfassan = new EintragErfassan();
 
+    @Before
+    public void openconnection(){
+        loginPageCase.loginWebsite();
+    }
 
     @Test
     public void clickBtnEintragErfassen() throws Throwable {
-        loginPageCase.loginWebsite();
+
         eintragErfassan.clickEintragErfassen();
         eintragErfassan.clickprojectWahlen();
-        eintragErfassan.clickreproduzierbar();
-        eintragErfassan.clickschweregrad();
-        eintragErfassan.clickprioritat();
+//        eintragErfassan.clickreproduzierbar();
+//        eintragErfassan.clickschweregrad();
+//        eintragErfassan.clickprioritat();
         //eintragErfassan.clickbtnplus();
         eintragErfassan.clickplatform();
         eintragErfassan.clickbetriebssystem();
@@ -32,7 +39,8 @@ public class EintragErfassanTest extends Driver {
         eintragErfassan.zusatzlicheInfo();
         eintragErfassan.clickbtnPrivat();
         eintragErfassan.clickbtnEintragAbsenden();
-       // quitDriver();
+       // System.out.println(driver.getTitle());
+        Assert.assertEquals(driver.getTitle(), "MantisBT");
 
 
    }

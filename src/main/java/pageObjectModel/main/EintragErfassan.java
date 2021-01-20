@@ -10,9 +10,7 @@ import pageObjectModel.WebElements;
 public class EintragErfassan extends WebElements {
 
 
-    public EintragErfassan() {
-        PageFactory.initElements(driver, this);
-    }
+    public EintragErfassan(){PageFactory.initElements(driver,this);}
 
     @FindBy(className = "fa-edit")
     private WebElement btnEintragErfassen;
@@ -25,7 +23,7 @@ public class EintragErfassan extends WebElements {
     private WebElement btnprojektWahlen;
     public void clickprojectWahlen() { clickFunction(btnprojektWahlen);    }
 
-    @FindBy(id = "reproducibility")
+    @FindBy(name = "reproducibility")
     private WebElement reproduzierbar;
     public void clickreproduzierbar() { selectElementFromDropdown(reproduzierbar, "immer");  }
 

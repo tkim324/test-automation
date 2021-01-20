@@ -10,7 +10,7 @@ package webdriver;
 public abstract class Driver {
 
 
-    private static String browser = "chrome";           //"firefox" and "edge" also supported
+    private static String browser = "chore";           //"firefox" and "edge" also supported
 
     private String domain = "mantis.haeger-consulting.de/";
     protected String URL = String.format("https://%s:%s@%s", "mantis", "likemypet", domain);
@@ -24,6 +24,7 @@ public abstract class Driver {
 
         if (browserName.get() == null){
             browserName.set(browser);
+
         }
 
         if (threadDriver.get() == null){
