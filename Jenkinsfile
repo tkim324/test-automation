@@ -3,7 +3,7 @@ pipeline {
     agent {
         docker {
             image 'markhobson/maven-chrome:jdk-11'
-            args '--name test-automation'
+            args '-w C:\\Users\\Taemin\\IdeaProjects\\jenkins\\workspace --name test-automation'
         }
     }
 
