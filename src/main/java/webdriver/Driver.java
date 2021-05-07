@@ -1,10 +1,11 @@
 package webdriver;
 
-        import io.github.bonigarcia.wdm.WebDriverManager;
-        import org.openqa.selenium.WebDriver;
-        import org.openqa.selenium.chrome.ChromeDriver;
-        import org.openqa.selenium.edge.EdgeDriver;
-        import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 
 public abstract class Driver {
@@ -18,18 +19,20 @@ public abstract class Driver {
     private static ThreadLocal<WebDriver> threadDriver = new ThreadLocal<>();
     private static ThreadLocal<String> browserName = new ThreadLocal<>();
 
-    public Driver (){driver = getDriver();}
+    public Driver() {
+        driver = getDriver();
+    }
 
-    public static WebDriver getDriver(){
+    public static WebDriver getDriver() {
 
-        if (browserName.get() == null){
+        if (browserName.get() == null) {
             browserName.set(browser);
 
         }
 
-        if (threadDriver.get() == null){
+        if (threadDriver.get() == null) {
 
-            switch (browserName.get()){
+            switch (browserName.get()) {
 
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
@@ -48,14 +51,14 @@ public abstract class Driver {
 
             }
 
-        } return threadDriver.get();
+        }
+        return threadDriver.get();
     }
 
 
+    public static void quitDriver() {
 
-    public static void quitDriver(){
-
-        if (threadDriver.get() != null){
+        if (threadDriver.get() != null) {
 
             threadDriver.get().quit();
             WebDriver driver = threadDriver.get();

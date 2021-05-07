@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>groupId</groupId>
-    <artifactId>seleniummantis01</artifactId>
+    <artifactId>test-automation</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <build>
@@ -18,9 +18,8 @@
         </plugins>
     </build>
     <properties>
-        <maven.compiler.target
-        >15</maven.compiler.target>
-        <maven.compiler.source>15</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
     </properties>
     <dependencies>
         <dependency>
